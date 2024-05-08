@@ -1,0 +1,44 @@
+
+html,
+body {
+    height: 100%;
+}
+.wrapper {
+    height: 100%;
+}
+.content {
+    height: 100%;
+}
+.btn {
+    cursor: pointer;
+}
+.btn:hover {
+    background-color: goldenrod;
+    border-color: goldenrod;
+}
+.button:hover {
+    color: white;
+    background-color: #4d5257;
+}
+.page {
+    word-spacing: 10px;
+    text-align: center;
+    padding: 15%;
+    color: #4d5257
+}
+
+.btn-primary {
+    background-color: goldenrod;
+    border-color: goldenrod;
+    cursor: pointer;
+}
+
+.footer {
+    background-color: #343a40;
+    color: darkgray;
+    bottom: 0;
+    left: 0;
+    padding: 50px;
+    width: 100%;
+}
+
