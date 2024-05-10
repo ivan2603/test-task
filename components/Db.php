@@ -1,4 +1,7 @@
 <?php
+namespace Components;
+
+use PDO;
 
 class Db {
 

@@ -1,6 +1,11 @@
 <?php
+namespace App\Models;
 
-class Vehicle
+use Components\Db;
+use PDOException;
+use PDO;
+
+class VehicleModel
 {
     /**
      * Create vehicle type method

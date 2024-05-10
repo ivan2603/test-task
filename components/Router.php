@@ -1,4 +1,8 @@
 <?php
+namespace Components;
+
+use Exception;
+
 class Router {
 
     private $routes;
@@ -41,13 +45,14 @@ class Router {
 
                 $actionName = 'action'.ucfirst(array_shift($segments));
                 $parameters = $segments;
-                $controllerFile = ROOT. '/controllers/' . $controllerName . '.php';
-
+                $controllerFile = ROOT. '/app/controllers/' . $controllerName . '.php';
                 if (file_exists($controllerFile)) {
-                    include_once ($controllerFile);
+                    require_once($controllerFile);
+                } else {
+                    throw new Exception("Controller file $controllerFile not found");
                 }
-
-                $controllerObject = new $controllerName;
+                $controllerName = "App\\Controllers\\$controllerName";
+                $controllerObject = new $controllerName();
                 $result = call_user_func_array(array($controllerObject, $actionName), $parameters);
 
                 if ($result != null) {

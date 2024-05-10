@@ -1,6 +1,11 @@
 <?php
+namespace App\Models;
 
-class User {
+use Components\Db;
+use PDOException;
+use PDO;
+
+class UserModel {
 
     private const ADMIN = 1;
     private const CLIENT = 2;

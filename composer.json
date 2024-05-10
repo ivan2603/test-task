@@ -1,0 +1,20 @@
+{
+    "name": "mvc/project",
+    "description": "The self-written MVC Framework",
+    "type": "project",
+    "authors": [
+        {
+            "name": "ivan2603",
+            "email": "iivan2603@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "App\\Controllers\\": "app/controllers/",
+            "App\\Models\\": "app/models/",
+            "Components\\": "components/"
+        }
+    }
+}

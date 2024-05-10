@@ -1,16 +1,19 @@
 <?php
-require_once 'BaseController.php';
+namespace App\Controllers;
+
+use App\Models\UserModel;
+use App\Models\UserProfileTransfer;
 
 class UserController extends BaseController {
 
-    private User $user;
+    private UserModel $user;
     private UserProfileTransfer $userProfile;
 
     /**
      * UserController constructor.
      */
     public function __construct() {
-        $this->user = new User();
+        $this->user = new UserModel();
         $this->userProfile = new UserProfileTransfer;
     }
 
@@ -18,7 +21,7 @@ class UserController extends BaseController {
      * Action Index
      */
     public function actionIndex() {
-        require_once (ROOT.'/views/user/index.php');
+        require_once (ROOT.'/app/views/user/index.php');
     }
 
     /**
@@ -57,7 +60,7 @@ class UserController extends BaseController {
         if (isset($_SESSION['user']['role']) && !empty($_SESSION['user']['role'])) {
             $this->redirect('/vehicle/list');
         }
-        require_once (ROOT.'/views/user/register.php');
+        require_once (ROOT.'/app/views/user/register.php');
     }
 
     /**
@@ -84,7 +87,7 @@ class UserController extends BaseController {
             $this->redirect('/vehicle/list');
         }
 
-        require_once (ROOT.'/views/user/login.php');
+        require_once (ROOT.'/app/views/user/login.php');
     }
 
     /**

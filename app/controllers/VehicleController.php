@@ -1,16 +1,19 @@
 <?php
-require_once 'BaseController.php';
+namespace App\Controllers;
+
+use App\Models\VehicleModel;
+use App\Models\VehicleTransfer;
 
 class VehicleController extends BaseController
 {
-    private Vehicle $vehicle;
+    private VehicleModel $vehicle;
     private VehicleTransfer $vehicleTransfer;
 
     /**
      * VehicleController constructor.
      */
     public function __construct() {
-        $this->vehicle = new Vehicle();
+        $this->vehicle = new VehicleModel();
         $this->vehicleTransfer = new VehicleTransfer();
     }
 
@@ -25,7 +28,7 @@ class VehicleController extends BaseController
         $vehicleData = $this->vehicle->list();
         $this->vehicleTransfer->setData($vehicleData);
         $_SESSION['vehicleDataObject'] = $this->vehicleTransfer;
-        require_once (ROOT.'/views/vehicle/list.php');
+        require_once (ROOT.'/app/views/vehicle/list.php');
     }
 
     /**
