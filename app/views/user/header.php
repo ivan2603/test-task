@@ -47,18 +47,22 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <a class="navbar-brand" href="/">SK GROUP</a>
     <ul class="nav navbar-nav">
+        <?php if (isset($_SESSION['user']['login'])):?>
         <li class="nav-item <?=($_SERVER['REQUEST_URI'] =="/vehicle/list"?"active":"")?>">
             <a class="nav-link" href="/vehicle/list">Vehicle List</a>
         </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/user/logout">Logout</a>
+            </li>
+        <?php else:?>
         <li class="nav-item <?=($_SERVER['REQUEST_URI'] =="/user/login"?"active":"")?>">
             <a class="nav-link" href="/user/login">Login</a>
         </li>
         <li class="nav-item <?=($_SERVER['REQUEST_URI'] =="/user/register"?"active":"")?>">
             <a class="nav-link" href="/user/register">Register</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/user/logout">Logout</a>
-        </li>
+        <?php endif;?>
+
     </ul>
     <?php
     if(isset($_SESSION['user']['login'])) {
